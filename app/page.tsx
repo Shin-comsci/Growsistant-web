@@ -58,7 +58,7 @@ export default function Home() {
           </h3>
 
           <p className="text-black leading-relaxed text-lg">
-            A mini smart garden that automatically takes care of your plants. Perfect for apartments, boarding houses, and busy urban lifestyles.
+            It is a mini smart garden that automatically takes care of your plants. Perfect for apartments, boarding houses, and busy urban lifestyles.
           </p>
 
           <button className="inline-block px-8 py-2 rounded-full border border-[#6C8145] text-[#566738] hover:bg-[#6C8145] hover:text-white transition">
@@ -77,8 +77,8 @@ export default function Home() {
           <Image
             src="/product.png"
             alt="Growsistant Product"
-            width={430}
-            height={500}
+            width={330}
+            height={0}
             className="object-contain"
           />
 

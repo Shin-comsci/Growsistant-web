@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-5 left-3 right-3 min-h-[75px] w-[95%] mx-auto bg-white/50 z-[9999] border border-[#DDE2C4] rounded-full px-10 py-1 flex items-center justify-between shadow-sm">
+    <nav className="fixed top-5 left-3 right-3 min-h-[75px] w-[95%] mx-auto bg-white/50 z-9999 border border-[#DDE2C4] rounded-full px-10 py-1 flex items-center justify-between shadow-sm">
       <div className="flex items-center gap-3">
         <Image
           src="/logo.webp"
