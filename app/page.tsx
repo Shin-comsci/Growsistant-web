@@ -12,7 +12,7 @@ import { WordsPullUp } from "@/components/ui/WordsPullUp";
 import { FaInstagram, FaLocationDot, FaPhone } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 import { RiDiscountPercentLine } from "react-icons/ri";
-import { MdDiscount } from "react-icons/md";
+import { MdDiscount, MdFeedback } from "react-icons/md";
 import { handleScrollTo } from "./functions/navigation";
 
 export default function Home() {
@@ -233,6 +233,37 @@ export default function Home() {
 
       </section>
 
+      {/* DOWNLOAD MOBILE APP */}
+
+      <section className="w-full flex flex-col items-center portrait:mt-20 landscape:mt-40 portrait:text-center" id="app">
+        <h2 className="text-4xl font-normal tracking-[0.2em] text-dgreen mb-10">
+          Get The App
+        </h2>
+        <div className="flex landscape:flex-row portrait:flex-col items-center portrait:gap-10 landscape:gap-20">
+          <Image
+            src="/mobile_app.webp"
+            alt="App Mockup"
+            width={orientation === 'portrait' ? 200 : 250}
+            height={0}
+            className="object-contain"
+          />
+          <div className="flex flex-col portrait:items-center max-w-lg portrait:gap-5 landscape:gap-8">
+            <p className="text-black text-lg landscape:max-w-[500px]">
+              Control and monitor your <strong>Growsistant</strong> smart garden from anywhere with our <strong>mobile app</strong>. Adjust settings, track plant health, and receive notifications right on your phone.
+            </p>
+            <Image
+              src="/qr_apk.webp"
+              alt="QR Code to download APK"
+              width={orientation === 'portrait' ? 300 : 250}
+              height={0}
+            />
+            <RoundedButton onClick={() => {
+              window.open("https://drive.google.com/file/d/1j_4PcvIRH5pUoCdeC6FQvV5PvihbdE_x/view?usp=sharing", "_blank");
+            }} text="Download APK" />
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT SECTION */}
 
       <section className="w-full flex portrait:flex-col justify-center mt-20 pb-20" id="contact">
@@ -249,9 +280,10 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4 mt-6">
 
               {/* Card 1 */}
-              <div className="p-4 bg-white rounded-xl border flex flex-col min-h-[130px]">
+              <div className="p-4 bg-white rounded-xl border flex flex-col min-h-[130px]" onClick={() => {
+                window.open("https://www.instagram.com/growsistant", "_blank");
+              }}>
                 <FaInstagram className="text-2xl mb-auto" />
-                {/* <div className="text-blue-500 text-3xl mb-2">📄</div> */}
                 <h3 className="py-1 font-semibold text-gray-500">Instagram</h3>
                 <a href="https://www.instagram.com/growsistant" target="_blank" className="text-sm text-blue-500 hover:opacity-50 transition">
                   {"@growsistant"}
@@ -259,10 +291,14 @@ export default function Home() {
               </div>
 
               {/* Card 2 */}
-              <div className="p-4 bg-white rounded-xl border flex flex-col min-h-[130px]">
-                <SiGmail className="text-2xl mb-auto" />
-                <h3 className="py-1 font-semibold text-gray-500">Our Email</h3>
-                <p className="text-sm text-gray-600">TBA</p>
+              <div className="p-4 bg-white rounded-xl border flex flex-col min-h-[130px]" onClick={() => {
+                window.open("https://docs.google.com/forms/d/e/1FAIpQLSdiV1AUEepcZqhEN38hDJNVS_q40V54K6-XwWFtBiuIuEpRZg/viewform", "_blank");
+              }}>
+                <MdFeedback className="text-2xl mb-auto" />
+                <h3 className="py-1 font-semibold text-gray-500">Feedback</h3>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiV1AUEepcZqhEN38hDJNVS_q40V54K6-XwWFtBiuIuEpRZg/viewform" target="_blank" className="text-sm text-blue-500 hover:opacity-50 transition">
+                  {"Feedback Form"}
+                </a>
               </div>
 
               {/* Card 3 */}
@@ -273,7 +309,9 @@ export default function Home() {
               </div>
 
               {/* Card 4 */}
-              <div className="p-4 bg-gray-50 rounded-xl border flex flex-col min-h-[130px]">
+              <div className="p-4 bg-gray-50 rounded-xl border flex flex-col min-h-[130px]" onClick={() => {
+                window.open("https://maps.app.goo.gl/k1kYUG8ySJ4wsp1H9", "_blank");
+              }}>
                 <FaLocationDot className="text-2xl mb-auto" />
                 <h3 className="py-1 font-semibold text-gray-500">Visit Us</h3>
                 <a href="https://maps.app.goo.gl/k1kYUG8ySJ4wsp1H9" target="_blank" className="text-sm text-blue-500 hover:opacity-50 transition">Binus University @Anggrek</a>
@@ -321,7 +359,7 @@ export default function Home() {
             </button>
           </form>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 }
