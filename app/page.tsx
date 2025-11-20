@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import Link from 'next/link';
 import RoundedButton from "@/components/RoundedButton";
 import { useTailwindBreakpoint } from "@/components/hooks/Breakpoint";
 import Navbar from "@/components/Navbar";
-import { PlantImages } from "@/components/interface/Types";
+import { breakpointOrder, PlantImages } from "@/components/interface/Types";
 import { motion } from "framer-motion";
 import { WordsPullUp } from "@/components/ui/WordsPullUp";
 import { FaInstagram, FaLocationDot, FaPhone } from "react-icons/fa6";
-import { SiGmail } from "react-icons/si";
-import { RiDiscountPercentLine } from "react-icons/ri";
 import { MdDiscount, MdFeedback } from "react-icons/md";
 import { handleScrollTo } from "./functions/navigation";
 
@@ -52,15 +49,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background font-primary overflow-x-hidden p-5">
-
-      {/* NAVBAR */}
       <Navbar />
 
-      {/* HERO SECTION */}
       <section className="flex w-full h-screen items-center overflow-hidden rounded-b-[60px]" id="home">
         <Image
           src="/landing_page_bg.webp"
-          alt="Hero Image"
+          alt=" "
           fill
           className="object-cover fade-mask"
           style={{ opacity: 0.7 }}
@@ -73,7 +67,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-dgreen font-semibold text-2xl portrait:text-center"
+            className="text-dgreen font-semibold text-2xl md:tracking-[0.12em] md:text-3xl portrait:text-center leading-loose"
           >
             Designed for modern living, powered by smart growing technology
           </motion.div>
@@ -86,14 +80,14 @@ export default function Home() {
       {/* ABOUT SECTION */}
       <section className="w-full flex portrait:flex-col landscape:flex-row items-center justify-center xl:gap-50 md:gap-20 landscape:px-24 my-20 landscape:mt-40 ">
         {/* LEFT CONTENT */}
-        <div className="max-w-xl space-y-4 portrait:items-center portrait:text-center">
-          <h2 className="text-3xl landscape:text-4xl font-medium landscape:tracking-[0.2em] portrait:tracking-[0.2em] whitespace-nowrap text-black">
-            Get To Know Our
+        <div className="max-w-xl space-y-4 portrait:items-center portrait:text-center portrait:mb-5">
+          <h2 className="text-3xl landscape:text-4xl font-medium tracking-[0.2em] whitespace-nowrap text-dgreen">
+            Get To Know
           </h2>
-
-          <Image src="/logo_full.webp" alt="Growsistant Logo" width={500} height={0} />
-
-          <p className="text-black leading-relaxed text-lg portrait:mb-10">
+          <div className="flex portrait:justify-center">
+            <Image src="/logo_full.webp" alt="Growsistant Logo" width={500} height={0} />
+          </div>
+          <p className="text-black leading-loose text-lg md:text-xl portrait:mb-10">
             It is a <strong>mini smart garden</strong> that automatically takes care of your plants. Perfect for apartments, boarding houses, and busy urban lifestyles.
           </p>
 
@@ -136,7 +130,7 @@ export default function Home() {
           <div className="flex items-center justify-center landscape:gap-6 portrait:min-h-[340px] landscape:min-h-[400px]">
             <Image
               src={images[0]}
-              width={orientation === 'portrait' ? 110 : 140}
+              width={(orientation === 'portrait' && breakpointOrder[breakpoint] < breakpointOrder['md']) ? 110 : (orientation === 'portrait') ? 180 : 200}
               height={0}
               alt="Side"
               className="cursor-pointer opacity-80 hover:scale-110 transition-transform"
@@ -146,7 +140,7 @@ export default function Home() {
             {/* CENTER IMAGE */}
             <Image
               src={images[1]}
-              width={orientation === 'portrait' ? 180 : 260}
+              width={(orientation === 'portrait' && breakpointOrder[breakpoint] < breakpointOrder['md']) ? 180 : (orientation === 'portrait') ? 240 : 260}
               height={0}
               alt="Main"
               className="transition-transform cursor-pointer"
@@ -155,7 +149,7 @@ export default function Home() {
             {/* RIGHT IMAGE */}
             <Image
               src={images[2]}
-              width={orientation === 'portrait' ? 110 : 140}
+              width={(orientation === 'portrait' && breakpointOrder[breakpoint] < breakpointOrder['md']) ? 110 : (orientation === 'portrait') ? 180 : 200}
               height={140}
               alt="Side"
               className="cursor-pointer opacity-80 hover:scale-110 transition-transform"
@@ -164,12 +158,12 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center landscape:gap-20 portrait:gap-5 text-gray-500">
             <div className="flex flex-col items-center">
-              <div>Dimensions</div>
-              <strong>11 x 11 x 35 cm</strong>
-            </div>
-            <div className="flex flex-col items-center">
               <div>Power</div>
               <strong>~12W Typical</strong>
+            </div>
+            <div className="flex flex-col items-center">
+              <div>Dimensions</div>
+              <strong>11 x 11 x 35 cm</strong>
             </div>
             <div className="flex flex-col items-center">
               <div>Material</div>
@@ -187,12 +181,12 @@ export default function Home() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col items-center mt-10"
         >
-          <div className="flex gap-3 mb-3 text-xl items-center justify-center">
+          <div className="flex gap-3 mb-5 text-xl items-center justify-center">
             <MdDiscount />
             <div>Limited November Offer</div>
           </div>
           <div className="text-gray-400 line-through text-3xl">Rp 300.000</div>
-          <h1 className="text-3xl font-semibold text-black mt-1 mb-5">Rp 248.900</h1>
+          <h1 className="text-3xl font-semibold text-black mt-1 mb-8">Rp 248.900</h1>
 
           {/* <button onClick= className="inline-block px-8 py-2 cursor-pointer rounded-full border border-dgreen text-dgreen hover:bg-lgreen hover:border-lgreen hover:text-white transition">
             Pre-Order
@@ -207,7 +201,7 @@ export default function Home() {
         <h2 className="text-4xl font-normal tracking-[0.2em] text-secondary mb-10">
           Our Plant Collections
         </h2>
-        <div className="grid landscape:grid-cols-3 portrait:grid-cols-1 gap-10 max-w-6xl">
+        <div className="grid landscape:grid-cols-3 portrait:grid-cols-1 portrait:md:grid-cols-2 gap-10 max-w-6xl">
           {cactusImages.map((plant, index) => (
             <motion.div
               key={index}
