@@ -183,7 +183,7 @@ export default function Home() {
         >
           <div className="flex gap-3 mb-5 text-xl items-center justify-center">
             <MdDiscount />
-            <div>Limited November Offer</div>
+            <div>Exclusive December Offer</div>
           </div>
           <div className="text-gray-400 line-through text-3xl">Rp 300.000</div>
           <h1 className="text-3xl font-semibold text-black mt-1 mb-8">Rp 248.900</h1>
